@@ -1,0 +1,14 @@
+django
+django-recaptcha
+numpy
+torch
+torchvision
+timm
+sklearn
+cmake
+face-recognition
+tensorflow==2.7.0
+boto3
+opencv-python
+matplotlib
+pandas

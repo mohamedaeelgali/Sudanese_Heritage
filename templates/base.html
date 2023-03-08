@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: "#da373d",
+          },
+        },
+      },
+    }
+  </script>
+  <style type="text/css">
+    ::-webkit-file-upload-button {
+   display: none;
+}
+::file-selector-button {
+  display: none;
+}
+#btn
+{
+    margin: 3px;
+}  
+
+#upload
+{
+margin: 3px;
+
+}
+/* Header/Logo Title */
+.header {
+  padding: 30px;
+  text-align: center;
+  background: #44505c;
+  color: white;
+  font-size: 20px;
+  font-family: Arial;
+  margin: -20;
+}
+
+/* Page Content */
+.content {padding:20px;}
+span { 
+    display:block;
+    width:500px;
+    word-wrap:break-word;
+}
+
+</style>
+  <title>{% block title %}Sudanese Heritage{% endblock %}</title>
+  
+</head>
+<body>
+
+<div class="header">
+  <h1>Sudanese Heritage</h1>
+</div>
+
+  <div class="flex lg:py-10 xl:px-[180px] w-full flex-col gap-5">
+    <div class="w-full h-[auto] md:h-full bg-white drop-shadow-2xl rounded-xl md:py-14 md:px-20 ">
+      <div class="flex w-full h-[auto] md:h-full flex-col">
+        <div class="w-full h-20vh md:h-[60vh] flex flex-col lg:flex-row mt-10 md:mt-30">
+         
+          <div class="flex-1 lg:ml[70px]">
+		  
+            <img src="media/sample.png" class="rounded-bl-xl" />
+          </div>
+        </div>
+
+        
+
+  
+ {% block content %}
+            {% endblock %}
+
+
+
+      </div>
+    </div>
+
+    <div class="flex flex-col lg:flex-row gap-5 md:gap-5 w-full bg-gray-600 rounded-md text-white p-10">
+      <div>
+        <h1 class="font-bold">ABOUT</h1>
+        <h1>
+          The project aims to introduce Sudanese heritage and provide historical data about people, places and tools related to Sudanese heritage.
+		 
+
+
+		 If you find an image and do not know the people/building tools in it, upload it and the artificial intelligence algorithm will find answers to your questions.
+        </h1>
+      </div>
+      <div>
+        <h1 class="font-bold">FAQ</h1>
+        <h1>
+		<span>
+          How can I find information about a person/tool/structure that I have an image of?
+		  </span>
+		  <span>
+Upload that image using above upload feature, if it is in our database, the information about will appear to you.
+</span>
+<span>
+
+.
+</span>
+<span>
+
+.
+</span>
+<span>
+What if the image is not in the database?
+</span>
+<span>
+If you know any information about the image, please attach it, our team will verify the information and update database.
+</span>
+<span>
+
+.
+</span>
+<span>
+
+.
+</span>
+Can I delete an Image that I uploaded?
+Contact us using admin@sudaneseheritage.net and we will delete it based on your request.
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <script src="static/script.js?v=3333115933331231"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: "en" },
+        "google_translate_element"
+      )
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+{% extends 'base2.html' %}
+{% block content %}
+
+
+
+<div class="container d-lg-flex">
+<div class="box-1 bg-light user">
+<div class="box-inner-1 pb-3 mb-3 ">
+
+ <p><a href="{% url 'Home' %}">Home</a></p>
+<br>
+<p> Add new Tool: </p>
+
+<form method="post" action="">
+{% csrf_token %}
+{{ tool_form }}
+<input type="hidden" name="type" value="person">
+<br><br>
+<input type="submit" value="Submit" class="btn btn-primary">
+</form>
+        </div>
+      </div>
+      <div class="box-2">
+        <div class="box-inner-2">
+ 
+<br><br>
+          <p>Add new image:</p>
+<form method="post" action="" enctype="multipart/form-data">
+{% csrf_token %}
+{{ tool_image_form }}
+<input type="hidden" name="type" value="image">
+<br><br>
+<input type="submit" value="Submit" class="btn btn-primary">
+</form>
+
+{% if tool_submitted %}
+<script>
+
+  alert("New Tool added and sent for approval");
+
+</script>
+{% endif %}
+
+
+{% if captcha_submitted %}
+<script>
+alert("Please solve the captcha");
+</script>
+{% endif %}
+
+
+{% if image_submitted %}
+<script>
+
+  alert("Your image has been received and sent for approval");
+
+</script>
+{% endif %}
+
+ </div>
+      </div>
+    </div>
+
+
+
+{% endblock %}

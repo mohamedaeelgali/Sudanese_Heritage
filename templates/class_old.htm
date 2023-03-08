@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<div class="container d-lg-flex">
+<div class="box-1 bg-light user">
+<div class="box-inner-1 pb-3 mb-3 ">
+
+
+<p> Upload the image to classify: </p>
+<br>
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+{{ uploadpic }}
+<br>
+<button type="submit">Upload and Classify</button>
+</form>
+
+        </div>
+      </div>
+      <div class="box-2">
+        <div class="box-inner-2">
+
+{% if img %}
+          <p>You just uploded:</p>
+<img src="{{img}}" style="max-width:100%">
+{% endif %}       
+
+{% if classname %}
+<br><br>
+          <h3><b>{{classname}}</b></h3>
+<br>
+{% endif %}
+
+{% if captcha_submitted %}
+<script>
+alert("Please solve the captcha");
+</script>
+{% endif %}
+
+
+{% if unknown %}
+<p><a href="{% url 'add-person' %}">Add person/image</a></p>
+{% endif %}
+
+{% if unknown_tool %}
+<p><a href="{% url 'add-tool' %}">Add Tool/image</a></p>
+{% endif %}
+
+{% if unknown_structure %}
+<p><a href="{% url 'add-structure' %}">Add Structure/image</a></p>
+{% endif %}
+
+
+ </div>
+      </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="w-full h-[auto] md:h-[30vh] flex flex-col justify-center items-center mt-10 md:mt-[180px] lg:mt-0">
+          <div
+            class="drag-area md:w-[350px] outline-dashed rounded-xl outline-2 flex flex-col justify-center items-center active:outline p-3 [&>*]:max-w-[200px] [&>*]:max-h-[100px]">
+            <div class="text-2xl">
+              <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+            <header class="text-slate-500">Drag & Drop to Upload File</header>
+            <span class="text-[15px]">OR</span>
+            <input type="file" hidden />
+          </div>
+          <div class="w-full flex justify-center mt-5 gap-3">
+<div style="text-align:center;">
+
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+{{ uploadpic }}
+
+      
+            <button
+              class="px-[10px] py-[5px] bg-[#323948] hover:bg-[#181e2a] rounded-md active:scale-[95%] cursor-pointer text-[15px] text-white cursor-pointer" type="submit" id="upload">
+              Upload and Classify
+            </button>
+            </form>
+</div>
+          </div>
+        </div>
+
+
+
+
+
+{% if img %}
+
+        <div class="w-full h-[auto] md:h-[60vh] flex flex-col lg:flex-row items-center gap-10 md:gap-10 lg:gap-10 mt-16 md:mt-20 mb-10 md:mb-0">
+          <div class="flex-1 flex justify-center">
+            <div class="md:w-[100%] w-[80%] flex justify-center ">
+              <img src="{{img}}" id="img-right" class="drop-shadow-xl rounded-md w-[400px] md:h-[320px] h-[250px] hidden" style="display: inline;">
+            </div>
+          </div>
+          
+          <div class="flex-1 flex flex-col p-10  bg-black bg-opacity-[0.4] rounded-md" id="texts" style="display: inline;">
+            <h1 class="font-bold text-white text-3xl">{{title}}</h1>
+{% for classnamee in classname %}      
+      <h1 class="text-justify text-white 2xl:text-xl" id="description">
+              {{classnamee}}
+            </h1>
+              {% endfor %}
+
+          </div>
+          
+        </div>
+
+        {% endif %}   
+
+
+
+
+{% if captcha_submitted %}
+<script>
+alert("Please solve the captcha");
+</script>
+{% endif %}
+
+
+
+{% if unknown %}
+<div class="w-full flex justify-center mt-5 gap-3">
+<button id="upload" onclick="window.location.href='{% url 'add-person' %}'" class="px-[10px] py-[5px] bg-[#323948] hover:bg-[#181e2a] rounded-md active:scale-[95%] cursor-pointer text-[15px] text-white cursor-pointer">
+              Add person to the database
+            </button>
+</div>
+{% endif %}
+
+{% if unknown_tool %}
+
+<div class="w-full flex justify-center mt-5 gap-3">
+<button id="upload" onclick="window.location.href='{% url 'add-tool' %}'" class="px-[10px] py-[5px] bg-[#323948] hover:bg-[#181e2a] rounded-md active:scale-[95%] cursor-pointer text-[15px] text-white cursor-pointer">
+              Add tool to the database
+            </button>
+</div>
+
+
+{% endif %}
+
+{% if unknown_structure %}
+
+<div class="w-full flex justify-center mt-5 gap-3">
+<button id="upload" onclick="window.location.href='{% url 'add-structure' %}'" class="px-[10px] py-[5px] bg-[#323948] hover:bg-[#181e2a] rounded-md active:scale-[95%] cursor-pointer text-[15px] text-white cursor-pointer">
+              Add structure to the database
+            </button>
+</div>
+
+{% endif %}
+
+
+ 
+
+
+
+{% endblock %}
+
+
+
+
+

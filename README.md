@@ -1,4 +1,4 @@
-Image-Based Identification and Recognition Using Convolutional Neural Network: A Case Study Sudanese Heritage  
+Image-Based Verification and Recognition Using Convolutional Neural Network: A Case Study Sudanese Heritage   
 
 Installation:
 

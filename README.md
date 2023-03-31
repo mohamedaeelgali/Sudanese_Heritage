@@ -1,4 +1,4 @@
-Image-Based Verification and Recognition Using Transfer Learning Convolutional Neural Network: A Case Study Sudanese Heritage  
+Image-Based Classification and Nearest Neighbor Using Transfer Learning Convolutional Neural Network: A Case Study Sudanese Heritage   
 
 Installation:
 
